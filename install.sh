@@ -64,7 +64,7 @@ sh zsh_install.sh
 rm zsh_install.sh
 
 echo "Installing the powerlevel9k theme for OMZ..."
-git clone "https://github.com/bhilburn/powerlevel9k.git" "~/.oh-my-zsh/custom/themes/powerlevel9k"
+git clone "https://github.com/bhilburn/powerlevel9k.git" "/home/$SUDO_USER/.oh-my-zsh/custom/themes/powerlevel9k"
 sed 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel9k\/powerlevel9k"/g' -i ~/.zshrc
 echo "POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)" >> ~/.zshrc
 echo "POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator battery time)" >> ~/.zshrc
