@@ -89,8 +89,8 @@ if [[ $OSCAT == "ubuntu" ]]; then
 		if install_package "sublime-text"; then
 			echo "Copying sublime-build file for C++ ..."
 			wget "https://github.com/Golovanov399/install-things/raw/master/C++ Single File.sublime-build"
-			mkdir -p "~/.config/sublime-text-3/Packages/C++/"
-			mv "C++ Single File.sublime-build" "~/.config/sublime-text-3/Packages/C++/"
+			mkdir -p "/home/$SUDO_USER/.config/sublime-text-3/Packages/C++/"
+			mv "C++ Single File.sublime-build" "/home/$SUDO_USER/.config/sublime-text-3/Packages/C++/"
 		fi
 	fi
 elif [[ $OSCAT == "arch" ]]; then
@@ -102,8 +102,8 @@ elif [[ $OSCAT == "arch" ]]; then
 		if install_package "sublime-text-dev" "yaourt -S"; then
 			echo "Copying sublime-build file for C++ ..."
 			wget "https://github.com/Golovanov399/install-things/raw/master/C++ Single File.sublime-build"
-			mkdir -p "~/.config/sublime-text-3/Packages/C++/"
-			mv "C++ Single File.sublime-build" "~/.config/sublime-text-3/Packages/C++/"
+			mkdir -p "/home/$SUDO_USER/.config/sublime-text-3/Packages/C++/"
+			mv "C++ Single File.sublime-build" "/home/$SUDO_USER/.config/sublime-text-3/Packages/C++/"
 		fi
 	fi
 
