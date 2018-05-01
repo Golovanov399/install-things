@@ -26,9 +26,9 @@ have_package() {
 
 install_package() {
 	if [[ -z $2 ]]; then
-		$CUR_CMD=$INST_CMD
+		CUR_CMD=$INST_CMD
 	else
-		$CUR_CMD=$2
+		CUR_CMD=$2
 	fi
 	echo "Installing $1..."
 	eval "$CUR_CMD $1"
@@ -59,7 +59,7 @@ echo "" >> ~/.zshrc
 
 echo "Installing Oh-My-Zsh..."
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O zsh_install.sh)"
-sh zsh_install.sh
+sh - golovanov zsh_install.sh
 rm zsh_install.sh
 
 echo "Installing the powerlevel9k theme for OMZ..."
