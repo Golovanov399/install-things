@@ -109,7 +109,7 @@ fi
 echo "Creating precompiled headers..."
 BITS_LOCATION=$(find /usr/include -name stdc++.h)
 wget "https://github.com/Golovanov399/install-things/raw/master/precompiled-headers/script.sh"
-sed 's/[^[:space]]*stdc++.h/$BITS_LOCATION/g'
+sed "s|[^[:space:]]*stdc++.h|$BITS_LOCATION|g" -i script.sh
 mkdir -p ~/misc/precompiled-headers
 mv "script.sh" "~/misc/precompiled-headers/"
 (cd ~/misc/precompiled-headers; sh ./script.sh)
