@@ -25,8 +25,13 @@ have_package() {
 }
 
 install_package() {
+	if [[ -z $2 ]]; then
+		$CUR_CMD=$INST_CMD
+	else
+		$CUR_CMD=$2
+	fi
 	echo "Installing $1..."
-	eval "$INST_CMD $1"
+	eval "$CUR_CMD $1"
 	if (( $? == 0 )); then
 		echo "Done installing $1."
 		return 0
@@ -93,7 +98,7 @@ elif [[ $OSCAT == "arch" ]]; then
 	fi
 
 	if ! have_package "subl"; then
-		if install_package "sublime-text-dev"; then
+		if install_package "sublime-text-dev" "yaourt -S"; then
 			echo "Copying sublime-build file for C++ ..."
 			wget "https://github.com/Golovanov399/install-things/raw/master/C++ Single File.sublime-build"
 			mkdir -p "~/.config/sublime-text-3/Packages/C++/"
@@ -101,8 +106,8 @@ elif [[ $OSCAT == "arch" ]]; then
 		fi
 	fi
 
-	if ! have_package telegram; then
-		install_package telegram
+	if ! have_package "telegram"; then
+		install_package "telegram-desktop"
 	fi
 fi
 
@@ -111,5 +116,5 @@ BITS_LOCATION=$(find /usr/include -name stdc++.h | head -n 1)
 wget "https://github.com/Golovanov399/install-things/raw/master/precompiled-headers/script.sh"
 sed "s|[^[:space:]]*stdc++.h|$BITS_LOCATION|g" -i script.sh
 mkdir -p ~/misc/precompiled-headers
-mv "script.sh" "~/misc/precompiled-headers/"
+mv "script.sh" ~/misc/precompiled-headers/
 (cd ~/misc/precompiled-headers; sh ./script.sh)
