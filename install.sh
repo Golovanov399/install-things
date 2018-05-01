@@ -4,7 +4,7 @@ OS="$(awk '{print $1}' < /etc/issue)"
 case $OS in
 	elementary|Ubuntu)
 		OSCAT="ubuntu";;
-	arch|Arch|Antegros)
+	arch|Arch|Antergos)
 		OSCAT="arch";;
 	*)
 		OSCAT="hz";;
