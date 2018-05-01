@@ -53,9 +53,9 @@ echo "}" >> ~/.zshrc
 echo "" >> ~/.zshrc
 
 echo "Installing Oh-My-Zsh..."
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-sh install.sh
-rm install.sh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O zsh_install.sh)"
+sh zsh_install.sh
+rm zsh_install.sh
 
 echo "Installing the powerlevel9k theme for OMZ..."
 git clone "https://github.com/bhilburn/powerlevel9k.git" "~/.oh-my-zsh/custom/themes/powerlevel9k"
