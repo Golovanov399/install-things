@@ -59,7 +59,7 @@ echo "" >> ~/.zshrc
 
 echo "Installing Oh-My-Zsh..."
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O zsh_install.sh)"
-sh - golovanov zsh_install.sh
+su - golovanov -c "sh zsh_install.sh"
 rm zsh_install.sh
 
 echo "Installing the powerlevel9k theme for OMZ..."
