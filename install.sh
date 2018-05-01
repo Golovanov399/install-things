@@ -101,13 +101,15 @@ elif [[ $OSCAT == "arch" ]]; then
 		fi
 	fi
 
-	if ! have_package telegram
+	if ! have_package telegram; then
 		install_package telegram
 	fi
 fi
 
 echo "Creating precompiled headers..."
+BITS_LOCATION=$(find /usr/include -name stdc++.h)
 wget "https://github.com/Golovanov399/install-things/raw/master/precompiled-headers/script.sh"
-mkdir -p "~/misc/precompiled-headers"
+sed 's/[^[:space]]*stdc++.h/$BITS_LOCATION/g'
+mkdir -p ~/misc/precompiled-headers
 mv "script.sh" "~/misc/precompiled-headers/"
 (cd ~/misc/precompiled-headers; sh ./script.sh)
