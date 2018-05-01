@@ -107,7 +107,7 @@ elif [[ $OSCAT == "arch" ]]; then
 fi
 
 echo "Creating precompiled headers..."
-BITS_LOCATION=$(find /usr/include -name stdc++.h)
+BITS_LOCATION=$(find /usr/include -name stdc++.h | head -n 1)
 wget "https://github.com/Golovanov399/install-things/raw/master/precompiled-headers/script.sh"
 sed "s|[^[:space:]]*stdc++.h|$BITS_LOCATION|g" -i script.sh
 mkdir -p ~/misc/precompiled-headers
