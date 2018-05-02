@@ -48,14 +48,14 @@ for i in git xclip guake firefox zsh; do
 done
 
 echo "Adding aliases to .zshrc..."
-echo "alias ls='ls --color=auto'" >> ~/.zshrc
-echo "alias grep='grep --color=auto'" >> ~/.zshrc
-echo "alias xclip='xclip -selection clipboard'" >> ~/.zshrc
-echo "" >> ~/.zshrc
-echo "function evnc() {" >> ~/.zshrc
-echo "	nohup evince $@ > /dev/null" >> ~/.zshrc
-echo "}" >> ~/.zshrc
-echo "" >> ~/.zshrc
+echo "alias ls='ls --color=auto'" >> "/home/$SUDO_USER/.zshrc"
+echo "alias grep='grep --color=auto'" >> "/home/$SUDO_USER/.zshrc"
+echo "alias xclip='xclip -selection clipboard'" >> "/home/$SUDO_USER/.zshrc"
+echo "" >> "/home/$SUDO_USER/.zshrc"
+echo "function evnc() {" >> "/home/$SUDO_USER/.zshrc"
+echo "	nohup evince $@ > /dev/null" >> "/home/$SUDO_USER/.zshrc"
+echo "}" >> "/home/$SUDO_USER/.zshrc"
+echo "" >> "/home/$SUDO_USER/.zshrc"
 
 echo "Installing Oh-My-Zsh..."
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O zsh_install.sh)"
@@ -65,13 +65,13 @@ rm zsh_install.sh
 
 echo "Installing the powerlevel9k theme for OMZ..."
 git clone "https://github.com/bhilburn/powerlevel9k.git" "/home/$SUDO_USER/.oh-my-zsh/custom/themes/powerlevel9k"
-sed 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel9k\/powerlevel9k"/g' -i ~/.zshrc
-echo "POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)" >> ~/.zshrc
-echo "POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator battery time)" >> ~/.zshrc
-echo "POWERLEVEL9K_BATTERY_LOW_BACKGROUND='240'" >> ~/.zshrc
-echo "POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND='240'" >> ~/.zshrc
-echo "POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND='240'" >> ~/.zshrc
-echo "POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND='240'" >> ~/.zshrc
+sed 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel9k\/powerlevel9k"/g' -i "/home/$SUDO_USER/.zshrc"
+echo "POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)" >> "/home/$SUDO_USER/.zshrc"
+echo "POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator battery time)" >> "/home/$SUDO_USER/.zshrc"
+echo "POWERLEVEL9K_BATTERY_LOW_BACKGROUND='240'" >> "/home/$SUDO_USER/.zshrc"
+echo "POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND='240'" >> "/home/$SUDO_USER/.zshrc"
+echo "POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND='240'" >> "/home/$SUDO_USER/.zshrc"
+echo "POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND='240'" >> "/home/$SUDO_USER/.zshrc"
 
 echo ""
 echo "You may want to install a good font for your terminal now. You can do it:"
@@ -116,6 +116,6 @@ echo "Creating precompiled headers..."
 BITS_LOCATION=$(find /usr/include -name stdc++.h | head -n 1)
 wget "https://github.com/Golovanov399/install-things/raw/master/precompiled-headers/script.sh"
 sed "s|[^[:space:]]*stdc++.h|$BITS_LOCATION|g" -i script.sh
-mkdir -p ~/misc/precompiled-headers
-mv "script.sh" ~/misc/precompiled-headers/
-(cd ~/misc/precompiled-headers; sh ./script.sh)
+mkdir -p "/home/$SUDO_USER/misc/precompiled-headers"
+mv "script.sh" "/home/$SUDO_USER/misc/precompiled-headers/"
+(cd "/home/$SUDO_USER/misc/precompiled-headers"; sh ./script.sh)
